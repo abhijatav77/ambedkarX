@@ -9,7 +9,7 @@ import { useAuth } from '../context/AuthProvider'
 
 const Sidebar = ({ setComponent }) => {
   const [show, setShow] = useState(false)
-  const { profile } = useAuth()
+  const { setIsAuthenticated, profile, setProfile } = useAuth()
   console.log("PROFILESSSSSSSSSSSSSSS", profile)
   const navigate = useNavigate()
 
@@ -28,6 +28,8 @@ const Sidebar = ({ setComponent }) => {
         withCredentials: true
       })
       toast.success(data.message)
+      setIsAuthenticated(false)
+      setProfile(null)
       navigate("/login")
     } catch (error) {
       toast(error?.response?.data?.message)
