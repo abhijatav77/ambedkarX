@@ -74,7 +74,7 @@ export const register = async (req, res) => {
         res.cookie("token", token, {
             httpOnly: true,
             secure: true,
-            sameSite: 'none'
+            sameSite: 'None'
         })
 
         res.status(200).json({
@@ -124,7 +124,7 @@ export const login = async (req, res) => {
         res.cookie("token", token, {
             httpOnly: true,
             secure: true,
-            sameSite: "none"
+            sameSite: "None"
         })
 
         res.status(200).json({
@@ -147,7 +147,11 @@ export const login = async (req, res) => {
 
 export const logout = (req, res) => {
     try {
-        res.clearCookie("token", { httpOnly: true })
+        res.clearCookie("token", { 
+            httpOnly: true,
+            secure: true,
+            sameSite: 'None'
+        })
         res.status(200).json({
             success: true,
             message: "User logged out successfully"
