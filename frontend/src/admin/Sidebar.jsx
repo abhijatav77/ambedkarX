@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom'
 import { toast } from 'react-hot-toast'
 import axios from 'axios'
 import { BACKEND_URL } from '../../utils/utils'
-import { useAuth } from '../context/AuthProvider'
+import { useAuth } from '../context/authProvider'
 
 const Sidebar = ({ setComponent }) => {
   const [show, setShow] = useState(false)
