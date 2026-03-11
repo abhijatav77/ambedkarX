@@ -24,8 +24,8 @@ const Famous = () => {
                   >Famous</span>
                   </div>
                   <div className='mt-2'>
-                    <h1 className='text-xl font-semibold text-gray-800'>{element.title}</h1>
-                    <p className='text-sm '>{element.author}</p>
+                    <h1 className='text-lg sm:text-xl md:text-2xl lg:text-xl font-semibold text-gray-800'>{element.title}</h1>
+                    <p className='text-sm sm:text-base md:text-base text-gray-600'>{element.author}</p>
                   </div>
               </div>
           ))} 

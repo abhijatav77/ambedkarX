@@ -31,7 +31,7 @@ const Trending = () => {
 
   return (
 
-    <div className='min-h-screen bg-gray-100'>
+    <div className='min-h-screen bg-gray-100 mt-4 md:mt-0'>
       <div className='container mx-auto p-6'>
       <h1 className='mb-10 text-xl font-bold text-blue-700'>Trending</h1>
       <Carousel
