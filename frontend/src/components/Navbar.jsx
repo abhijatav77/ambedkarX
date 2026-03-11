@@ -15,16 +15,14 @@ const Navbar = () => {
 
     const handleLogout = async () => {
         try {
-            const { data } = await axios.get(`${BACKEND_URL}/users/logout`,{}, {
-                withCredentials: true,
+            const { data } = await axios.get(`${BACKEND_URL}/users/logout`, {
+                withCredentials: true
             })
             toast.success(data.message)
             setIsAuthenticated(false)
             setProfile(null)
-            set
             navigate("/login")
         } catch (error) {
-            console.log(error)
             toast(error?.response?.data?.message)
         }
     }
