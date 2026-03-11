@@ -6,7 +6,7 @@ import { BACKEND_URL } from '../utils/utils'
 
 export const AuthContext = createContext()
 
-export const authProvider = ({children}) => {
+export const AuthProvider = ({children}) => {
     const [book, setBook] = useState([])
     const [bio, setBio] = useState([])
     const [isAuthenticated, setIsAuthenticated] = useState(false)

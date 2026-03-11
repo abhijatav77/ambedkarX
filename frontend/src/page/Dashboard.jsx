@@ -5,7 +5,7 @@ import UpdateBio from '../admin/UpdateBio'
 import CreateBio from '../admin/CreateBio'
 
 import { Navigate } from 'react-router-dom'
-import { useAuth } from '../context/authProvider'
+import { useAuth } from '../context/AuthProvider'
 
 const Dashboard = () => {
     const [component, setComponent] = useState("Biography")

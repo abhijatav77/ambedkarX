@@ -14,7 +14,7 @@ import Dashboard from './page/Dashboard'
 import UpdateBio from './admin/UpdateBio'
 import NotFound from './page/NotFound'
 import Profile from './admin/Profile'
-import { useAuth } from './context/authProvider'
+import { useAuth } from './context/AuthProvider'
 
 const App = () => {
 
