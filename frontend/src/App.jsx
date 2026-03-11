@@ -43,7 +43,7 @@ const App = () => {
         <Route path='/profile' element={<Profile />}></Route>
 
         {/* Page not found */}
-        <Route path='*' element={ <NotFound /> } ></Route>
+        <Route path='/*' element={ <NotFound /> } ></Route>
 
       </Routes>
       {!hideNavbarFooter && <Footer />}
