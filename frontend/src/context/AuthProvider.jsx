@@ -1,11 +1,11 @@
 import React from 'react'
 import { useEffect, useContext, createContext, useState } from 'react'
 import axios from 'axios'
-import { BACKEND_URL } from '../../utils/utils'
+import { BACKEND_URL } from '../../utils/utils.jsx'
 
 export const AuthContext = createContext()
 
-export const AuthProvider = ({children}) => {
+export const authProvider = ({children}) => {
     const [book, setBook] = useState([])
     const [bio, setBio] = useState([])
     const [isAuthenticated, setIsAuthenticated] = useState(false)
