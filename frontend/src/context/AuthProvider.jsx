@@ -1,7 +1,8 @@
 import React from 'react'
 import { useEffect, useContext, createContext, useState } from 'react'
 import axios from 'axios'
-import { BACKEND_URL } from '../../utils/utils.jsx'
+import { BACKEND_URL } from '../utils/utils'
+
 
 export const AuthContext = createContext()
 

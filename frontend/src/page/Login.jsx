@@ -1,7 +1,7 @@
 import axios from 'axios'
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import { BACKEND_URL } from '../../utils/utils'
+import { BACKEND_URL } from '../utils/utils'
 import toast from 'react-hot-toast'
 import { useAuth } from '../context/authProvider'
 

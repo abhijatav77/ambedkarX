@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { useEffect } from 'react'
 import axios from 'axios'
-import { BACKEND_URL } from '../../utils/utils'
+import { BACKEND_URL } from '../utils/utils'
 
 
 const BioDetails = () => {

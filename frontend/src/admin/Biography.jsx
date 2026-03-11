@@ -1,7 +1,7 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import toast from 'react-hot-toast'
-import { BACKEND_URL } from '../../utils/utils'
+import { BACKEND_URL } from '../utils/utils'
 import { Link, useNavigate } from 'react-router-dom'
 
 const Biography = () => {

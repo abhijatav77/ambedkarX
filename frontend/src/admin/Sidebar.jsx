@@ -4,7 +4,7 @@ import { IoMdClose } from 'react-icons/io'
 import { useNavigate } from 'react-router-dom'
 import { toast } from 'react-hot-toast'
 import axios from 'axios'
-import { BACKEND_URL } from '../../utils/utils'
+import { BACKEND_URL } from '../utils/utils'
 import { useAuth } from '../context/authProvider'
 
 const Sidebar = ({ setComponent }) => {
