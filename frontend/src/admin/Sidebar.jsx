@@ -30,7 +30,7 @@ const Sidebar = ({ setComponent }) => {
       toast.success(data.message)
       navigate("/login")
     } catch (error) {
-      toast(error.response.data.message)
+      toast(error?.response?.data?.message)
     }
   }
   return (
@@ -47,7 +47,7 @@ const Sidebar = ({ setComponent }) => {
       </div>
       <div className={`w-64 bg-gray-100 h-full shadow-lg fixed z-40 top-0 left-0 transition-transform duration-300 transform sm:translate-0 ${show ? "translate-0" : "-translate-x-full"} `}>
         <div className='pt-5 flex flex-col items-center justify-center'>
-          <img src={profile.user.adminPhoto.url} alt="AdminPhoto" className='w-30 h-30 rounded-full border-2 border-blue-600' />
+          <img src={profile?.user?.adminPhoto?.url} alt="AdminPhoto" className='w-30 h-30 rounded-full border-2 border-blue-600' />
           <p className='pt-2 text-sm font-semibold'>{profile.user.fullName}</p>
         </div>
         <ul className='pt-5 space-y-6 mx-4'>
