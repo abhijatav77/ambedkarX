@@ -17,9 +17,8 @@ const PORT = process.env.PORT
 app.use(express.json())
 app.use(cookieParser())
 app.use(cors({
-    origin: process.env.FRONTEND_URL,
-    credentials: true,
-    methods: ["GET", "POST", "PUT", "DELETE"],
+    origin:'https://ambedkar-x.vercel.app',
+    credentials: true
 }))
 app.use(fileUpload({
     useTempFiles: true,

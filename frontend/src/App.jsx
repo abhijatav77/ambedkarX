@@ -15,6 +15,7 @@ import UpdateBio from './admin/UpdateBio'
 import NotFound from './page/NotFound'
 import Profile from './admin/Profile'
 import { useAuth } from './context/AuthProvider'
+import PrivateRoute from './context/PrivateRoute'
 
 const App = () => {
 
@@ -30,7 +31,7 @@ const App = () => {
     {!hideNavbarFooter && <Navbar />}
     <Toaster />
       <Routes>
-        <Route path='/' element={isAuthenticated ? <Home /> : <Navigate to={'/login'} />}></Route>
+        <Route path='/' element={<PrivateRoute><Home /></PrivateRoute>}></Route>
         <Route path='/login' element={<Login />}></Route>
         <Route path='/register' element={<Register />}></Route>
         <Route path='/about' element={<About />}></Route>

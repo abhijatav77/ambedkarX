@@ -6,7 +6,7 @@ import { BACKEND_URL } from '../utils/utils'
 
 export const AuthContext = createContext()
 
-export const AuthProvider = ({children}) => {
+export const AuthProvider = ({ children }) => {
     const [book, setBook] = useState([])
     const [bio, setBio] = useState([])
     const [isAuthenticated, setIsAuthenticated] = useState(false)
@@ -16,18 +16,18 @@ export const AuthProvider = ({children}) => {
     useEffect(() => {
         const fetchBooks = async () => {
             try {
-                const { data } = await axios.get(`${BACKEND_URL}/books/all-books`,{
+                const { data } = await axios.get(`${BACKEND_URL}/books/all-books`, {
                     withCredentials: true
                 })
                 console.log(data)
                 setBook(data.allBooks)
             } catch (error) {
                 console.log(error)
-            } 
+            }
         }
         const fetchBios = async () => {
             try {
-                const {data} = await axios.get(`${BACKEND_URL}/bio/all-bio`,{
+                const { data } = await axios.get(`${BACKEND_URL}/bio/all-bio`, {
                     withCredentials: true
                 })
                 console.log(data)
@@ -39,14 +39,11 @@ export const AuthProvider = ({children}) => {
         }
         const fetchProfile = async () => {
             try {
-                const {data} = await axios.get(`${BACKEND_URL}/users/profile`,{
-                    withCredentials: true
-                })
-                console.log(data)
-                setProfile(data)
+                const { data } = await axios.get(`${BACKEND_URL}/users/profile`, { withCredentials: true })
+                setProfile(data.user)
                 setIsAuthenticated(true)
-            } catch (error) {
-                console.log(error)
+            } catch (err) {
+                setProfile(null)
                 setIsAuthenticated(false)
             } finally {
                 setLoading(false)
@@ -55,9 +52,9 @@ export const AuthProvider = ({children}) => {
         fetchBooks()
         fetchBios()
         fetchProfile()
-    },[])
+    }, [])
     return (
-        <AuthContext.Provider value={{book, bio, setBio, setBook, isAuthenticated, setIsAuthenticated, loading, profile, setProfile}}>{children}</AuthContext.Provider>
+        <AuthContext.Provider value={{ book, bio, setBio, setBook, isAuthenticated, setIsAuthenticated, loading, profile, setProfile }}>{children}</AuthContext.Provider>
     )
 }
 

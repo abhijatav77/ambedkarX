@@ -44,8 +44,8 @@ export const register = async (req, res) => {
             }
 
             const cloudResponse = await cloudinary.uploader.upload(adminPhoto.tempFilePath)
-            if (!cloudResponser) {
-                return res.status(400).json({
+            if (!cloudResponse) {
+                return res.status(500).json({
                     success: false,
                     message: "Photo upload failed"
                 })
@@ -74,12 +74,13 @@ export const register = async (req, res) => {
         const newUser = new User(newUserData)
         await newUser.save()
         const token = await jwt.sign({ id: newUser._id }, process.env.SECRET_KEY, { expiresIn: '1d' })
-        res.cookie("token", token, {
-            httpOnly: true,
-            secure: true,
-            sameSite: 'None',
-            path: '/'
-        })
+res.cookie("token", token, {
+  httpOnly: true,
+  secure: process.env.NODE_ENV === "production", // only on HTTPS
+  sameSite: process.env.NODE_ENV === "production" ? "None" : "Lax",
+  path: '/'
+})
+
 
         res.status(200).json({
             success: true,
@@ -125,12 +126,13 @@ export const login = async (req, res) => {
         }
 
         const token = await jwt.sign({ id: user._id }, process.env.SECRET_KEY, { expiresIn: '1d' })
-        res.cookie("token", token, {
-            httpOnly: true,
-            secure: true,
-            sameSite: "None",
-            path: "/"
-        })
+res.cookie("token", token, {
+  httpOnly: true,
+  secure: process.env.NODE_ENV === "production", // only on HTTPS
+  sameSite: process.env.NODE_ENV === "production" ? "None" : "Lax",
+  path: '/'
+})
+
         
         console.log("User controller login page check admin photo : ",user),
         res.status(200).json({
