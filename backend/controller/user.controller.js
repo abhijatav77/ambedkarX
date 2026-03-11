@@ -74,7 +74,8 @@ export const register = async (req, res) => {
         res.cookie("token", token, {
             httpOnly: true,
             secure: true,
-            sameSite: 'None'
+            sameSite: 'None',
+            path: '/'
         })
 
         res.status(200).json({
@@ -124,7 +125,8 @@ export const login = async (req, res) => {
         res.cookie("token", token, {
             httpOnly: true,
             secure: true,
-            sameSite: "None"
+            sameSite: "None",
+            path: "/"
         })
 
         res.status(200).json({

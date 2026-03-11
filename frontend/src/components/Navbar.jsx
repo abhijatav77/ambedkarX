@@ -9,16 +9,19 @@ import { useAuth } from '../context/AuthProvider';
 
 const Navbar = () => {
     const [show, setShow] = useState(false)
-    const { isAuthenticated, profile } = useAuth();
+    const { isAuthenticated, setIsAuthenticated, profile, setProfile } = useAuth();
 
     const navigate = useNavigate()
 
     const handleLogout = async () => {
         try {
-            const { data } = await axios.get(`${BACKEND_URL}/users/logout`, {
+            const { data } = await axios.get(`${BACKEND_URL}/users/logout`,{}, {
                 withCredentials: true,
             })
             toast.success(data.message)
+            setIsAuthenticated(false)
+            setProfile(null)
+            set
             navigate("/login")
         } catch (error) {
             console.log(error)
