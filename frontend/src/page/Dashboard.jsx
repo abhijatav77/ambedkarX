@@ -19,7 +19,7 @@ const Dashboard = () => {
         return <Navigate to={'/'} />
     }
 
-    if (profile?.user?.role !== "admin") {
+    if (profile?.role !== "admin") {
         return <Navigate to={"/"} />
     }
 
