@@ -17,9 +17,6 @@ const Navbar = () => {
         try {
             const { data } = await axios.get(`${BACKEND_URL}/users/logout`, {
                 withCredentials: true,
-                headers: {
-                    "Content-Type": "application/json"
-                }
             })
             toast.success(data.message)
             navigate("/login")
