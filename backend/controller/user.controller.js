@@ -44,8 +44,11 @@ export const register = async (req, res) => {
             }
 
             const cloudResponse = await cloudinary.uploader.upload(adminPhoto.tempFilePath)
-            if (!cloudResponse || cloudResponse.error) {
-                console.log(cloudResponse.error)
+            if (!cloudResponser) {
+                return res.status(400).json({
+                    success: false,
+                    message: "Photo upload failed"
+                })
             }
             
             var newUserData = {
@@ -128,7 +131,8 @@ export const login = async (req, res) => {
             sameSite: "None",
             path: "/"
         })
-
+        
+        console.log("User controller login page check admin photo : ",user),
         res.status(200).json({
             success: true,
             message: "User logged in successfully",
@@ -136,7 +140,8 @@ export const login = async (req, res) => {
                 _id: user._id,
                 fullName: user.fullName,
                 email: user.email,
-                role: user.role
+                role: user.role,
+                adminPhoto: user.adminPhoto
             }
         })
     } catch (error) {
