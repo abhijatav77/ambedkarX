@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai"
 import toast from 'react-hot-toast';
 import axios from 'axios';
-import { BACKEND_URL } from '../../utils/utils';
+import { BACKEND_URL } from '../utils/utils';
 import { useAuth } from '../context/AuthProvider';
 
 
