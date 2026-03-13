@@ -34,6 +34,7 @@ const CreateBio = () => {
     formData.append("bioImage", bioImage)
     try {
       const { data } = await axios.post(`${BACKEND_URL}/bio/create-bio`, formData, {
+        withCredentials: true,
         headers: {
           "Content-Type": "multi/data-files"
         }
