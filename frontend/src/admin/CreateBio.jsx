@@ -41,7 +41,7 @@ const CreateBio = () => {
       })
       console.log(data)
       toast.success(data.message)
-      navigate('')
+      navigate('/dashboard')
     } catch (error) {
       console.log(error)
       toast.error(error?.response?.data?.message)
