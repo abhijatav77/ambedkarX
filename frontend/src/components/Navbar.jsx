@@ -40,6 +40,13 @@ const Navbar = () => {
                         <Link to={'/about'} className='hover:text-blue-700 duration-300'>About</Link>
                         <Link to={'/contact'} className='hover:text-blue-700 duration-300'>Contact us</Link>
                     </div>
+                    {/* Mobile navbar */}
+                    <div className='md:hidden cursor-pointer' onClick={() => setShow(!show)}>{show ? (<AiOutlineClose size={25} />) : <AiOutlineMenu size={25} />}</div>
+                </div>
+                {/* Mobile Navbar */}
+                {show && (
+                    <div className='bg-white'>
+                        <div className='md:hidden h-screen flex flex-col items-center justify-center text-2xl space-y-8 font-semibold'>
                     <div className='space-x-3'>
                         {isAuthenticated && profile?.role === 'admin' ? (
                             <Link to={'/dashboard'}
@@ -55,13 +62,6 @@ const Navbar = () => {
                             >Logout</button>
                         }
                     </div>
-                    {/* Mobile navbar */}
-                    <div className='md:hidden cursor-pointer' onClick={() => setShow(!show)}>{show ? (<AiOutlineClose size={25} />) : <AiOutlineMenu size={25} />}</div>
-                </div>
-                {/* Mobile Navbar */}
-                {show && (
-                    <div className='bg-white'>
-                        <div className='md:hidden h-screen flex flex-col items-center justify-center text-2xl space-y-8 font-semibold'>
                             <Link to={'/'} onClick={() => setShow(!show)} className='hover:text-blue-700 duration-300'>Home</Link>
                             <Link to={'/biography'} onClick={() => setShow(!show)} className='hover:text-blue-700 duration-300'>Biography</Link>
                             <Link to={'/about'} onClick={() => setShow(!show)} className='hover:text-blue-700 duration-300'>About</Link>
