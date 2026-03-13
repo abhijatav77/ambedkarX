@@ -40,7 +40,7 @@ const Navbar = () => {
                         <Link to={'/about'} className='hover:text-blue-700 duration-300'>About</Link>
                         <Link to={'/contact'} className='hover:text-blue-700 duration-300'>Contact us</Link>
                     </div>
-                    <div className='space-x-3'>
+                    <div className='hidden md:flex space-x-3'>
                         {isAuthenticated && profile?.role === 'admin' ? (
                             <Link to={'/dashboard'}
                                 className='bg-blue-500 hover:bg-blue-800 duration-300 text-white rounded-md px-3 py-2'
